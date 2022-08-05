@@ -17,6 +17,7 @@ public class Customer {
 		for (Rental rental : rentals) {
 
 			sum += iRentalCost.totalRentalCost(rental.getDaysRented());
+			System.out.println("hh");
 		}
 		return sum;
 	}
