@@ -1,4 +1,4 @@
-package StudentCrudUpdate;
+package StudentCrudFlush;
 
 import java.time.LocalDate;
 
@@ -9,14 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-@Entity(name = "my_account")
+@Entity
 public class Student {
 
 	private Integer id;
 
 	private String fistName;
 	private String lastName;
-	private String name;
 	private int age;
 	private String school;
 
@@ -30,7 +29,6 @@ public class Student {
 		this.id = id;
 	}
 
-	@Transient
 	public String getFistName() {
 		return fistName;
 	}
@@ -39,21 +37,12 @@ public class Student {
 		this.fistName = fistName;
 	}
 
-	@Transient
 	public String getLastName() {
 		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getName() {
-		return this.fistName + " " + this.lastName;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getAge() {
@@ -71,10 +60,10 @@ public class Student {
 	public void setSchool(String school) {
 		this.school = school;
 	}
-	
 	public Student() {
 		
 	}
+
 
 	public Student(String fistName, String lastName, int age, String school) {
 		super();
@@ -83,5 +72,4 @@ public class Student {
 		this.age = age;
 		this.school = school;
 	}
-
 }

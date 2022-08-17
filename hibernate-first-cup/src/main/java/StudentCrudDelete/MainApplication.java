@@ -1,4 +1,4 @@
-package StudentCrudUpdate;
+package StudentCrudDelete;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,9 +19,8 @@ public class MainApplication {
 		Transaction tx = null;
 		try (Session session = sessionFactory.openSession()) {
 
-			student = session.load(Student.class, 5);
+			student = session.load(Student.class, 3);
 			tx = session.beginTransaction();
-			
 
 			student.setSchool("UIT");
 			student.setAge(22);
@@ -38,14 +37,27 @@ public class MainApplication {
 		}
 		try (Session session = sessionFactory.openSession()) {
 			tx = session.beginTransaction();
-			//Student s1 = session.get(Student.class, 1);
+			// Student s1 = session.get(Student.class, 1);
 
-			student.setSchool("CUM");
+			// Student s = (Student)session.merge(student);
+
+			student.setSchool("MIU");
 			student.setAge(30);
-			student.setFistName("Thuzar Lwin");
+			student.setFistName("Thu Tha");
 			student.setLastName("Oo");
-			session.update(student);
+			//session.saveOrUpdate(student);
 
+			Student s = new Student("John", "William", 22, "Latha");
+			//session.saveOrUpdate(s);
+
+			tx.commit();
+		}
+
+		try (Session session = sessionFactory.openSession()) {
+
+			Student s3 = (Student) session.load(Student.class, 3);
+			tx = session.beginTransaction();
+			session.delete(s3);
 			tx.commit();
 		}
 

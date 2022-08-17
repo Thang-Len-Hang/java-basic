@@ -1,4 +1,4 @@
-package StudentCrudUpdate;
+package StudentCrudMerge;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,7 +19,7 @@ public class MainApplication {
 		Transaction tx = null;
 		try (Session session = sessionFactory.openSession()) {
 
-			student = session.load(Student.class, 5);
+			student = session.load(Student.class, 4);
 			tx = session.beginTransaction();
 			
 
@@ -39,12 +39,12 @@ public class MainApplication {
 		try (Session session = sessionFactory.openSession()) {
 			tx = session.beginTransaction();
 			//Student s1 = session.get(Student.class, 1);
-
-			student.setSchool("CUM");
-			student.setAge(30);
-			student.setFistName("Thuzar Lwin");
-			student.setLastName("Oo");
-			session.update(student);
+			
+			Student s = (Student)session.merge(student);
+			s.setSchool("MIU");
+			s.setAge(30);
+			s.setFistName("Thuzar");
+			s.setLastName("Oo");
 
 			tx.commit();
 		}

@@ -1,4 +1,4 @@
-package StudentCrudUpdate;
+package StudentCrudPersit;
 
 import java.time.LocalDate;
 
@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-@Entity(name = "my_account")
+@Entity
 public class Student {
 
 	private Integer id;

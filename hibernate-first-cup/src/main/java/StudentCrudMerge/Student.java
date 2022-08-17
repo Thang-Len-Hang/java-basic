@@ -1,4 +1,4 @@
-package StudentCrudUpdate;
+package StudentCrudMerge;
 
 import java.time.LocalDate;
 
