@@ -15,13 +15,17 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	private LocalDate dateOfBirth;
+	private int age;
 	private String school;
 
-	public Student(String name, LocalDate dateOfBirth, String school) {
+	public Student() {
+
+	}
+
+	public Student(String name, int age, String school) {
 		super();
 		this.name = name;
-		this.dateOfBirth = dateOfBirth;
+		this.age = age;
 		this.school = school;
 	}
 
@@ -41,12 +45,12 @@ public class Student {
 		this.name = name;
 	}
 
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
+	public int getAge() {
+		return age;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public String getSchool() {
@@ -55,6 +59,11 @@ public class Student {
 
 	public void setSchool(String school) {
 		this.school = school;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", school=" + school + "]";
 	}
 
 }
