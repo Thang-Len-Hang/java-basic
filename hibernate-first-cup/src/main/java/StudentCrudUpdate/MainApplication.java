@@ -1,7 +1,5 @@
-package StudentCrud;
+package StudentCrudUpdate;
 
-import StudentCrud.Student;
-import StudentCrud.StudentDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,19 +15,26 @@ public class MainApplication {
 
 	public static void main(String[] args) {
 
+		Transaction tx = null;
 		try (Session session = sessionFactory.openSession()) {
-
-			StudentDAO obj = new StudentDAO(session);
-			obj.create(new Student("John"," Doe", 22, "ISM"));
-			obj.create(new Student("John"," William", 23, "ISY"));
-			obj.create(new Student("Thuza"," Nwe", 20, "ISM"));
-			obj.create(new Student("Khaing","Thuzar", 20, "ISM"));
-			obj.create(new Student("Thaw","Thar", 20, "ISM"));
+			
+			Student student = session.load(Student.class, 2);
+			tx = session.beginTransaction();
+			
+			student.setSchool("ShweBo");
+			student.setAge(22);
+			student.setFistName("John");
+			
+			
+			tx.commit();
+			
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 
+		}finally {
+			
 		}
 
 	}

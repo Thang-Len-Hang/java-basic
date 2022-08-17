@@ -1,5 +1,4 @@
-package StudentCrud;
-
+package StudentCrudUpdate;
 
 import java.time.LocalDate;
 
@@ -10,12 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-@Entity(name = "my_account")
-
+@Entity
 public class Student {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String fistName;
@@ -23,8 +19,6 @@ public class Student {
 	private String name;
 	private int age;
 	private String school;
-
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,13 +49,13 @@ public class Student {
 	}
 
 	public String getName() {
-		return this.fistName+" "+ this.lastName;
+		return this.fistName + " " + this.lastName;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -77,6 +71,10 @@ public class Student {
 	public void setSchool(String school) {
 		this.school = school;
 	}
+	
+	public Student() {
+		
+	}
 
 	public Student(String fistName, String lastName, int age, String school) {
 		super();
@@ -85,7 +83,5 @@ public class Student {
 		this.age = age;
 		this.school = school;
 	}
-	
-	
 
 }
