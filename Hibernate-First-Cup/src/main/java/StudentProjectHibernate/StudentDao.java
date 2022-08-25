@@ -31,7 +31,7 @@ public class StudentDao {
 		Subject subject3 = new Subject("Ruby", "3 months", 300.0);
 		Subject subject4 = new Subject("Scala", "5 months", 250.0);
 
-		StudentSubject studentSubject1 = new StudentSubject(90);
+		StudentSubject studentSubject1 = new StudentSubject(100);
 		StudentSubject studentSubject2 = new StudentSubject(80);
 		StudentSubject studentSubject3 = new StudentSubject(85);
 		StudentSubject studentSubject4 = new StudentSubject(75);
