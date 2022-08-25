@@ -16,13 +16,13 @@ import lombok.Setter;
 public class Driver extends Person {
 
 	private String driverNo;
-
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	
+	@ManyToOne( cascade = CascadeType.PERSIST)
 	@JoinTable(name = "car_driver")
-	private List<Car> carList = new ArrayList<>();
+	private Car carList;
 
 	public Driver() {
-		super();
+		
 	}
 
 	public Driver(String name, LocalDate dob, String driverNo) {

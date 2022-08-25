@@ -19,10 +19,10 @@ public class Owner extends Person {
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "car_owner")
-	private List<Car> carList = new ArrayList<>();
+	private Car carList;
 
 	public Owner() {
-		super();
+		
 	}
 
 	public Owner(String name, LocalDate dob, String ownerNo) {

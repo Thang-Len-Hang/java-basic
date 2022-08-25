@@ -22,27 +22,25 @@ public class Car {
 	private int millage;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "car_manufacturer")
-	@JoinColumn(name = "manufacturer_id")
 	private CarManufacturer carManufacturer;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "car_insurance")
 	private InsuranceCompany insuranceCompany;
 
-	@OneToMany(mappedBy = "carList", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "carList")
 	private List<Owner> ownerList = new ArrayList<>();
 
-	@OneToMany(mappedBy = "carList", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "carList")
 	private List<Driver> driverList = new ArrayList<>();
 
 	public void addOwner(Owner owner) {
-		owner.getCarList().add(this);
+		owner.setCarList(this);;
 		ownerList.add(owner);
 	}
 
 	public void addDriver(Driver driver) {
-		driver.getCarList().add(this);
+		driver.setCarList(this);
 		driverList.add(driver);
 	}
 

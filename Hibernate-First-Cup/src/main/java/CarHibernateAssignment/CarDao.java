@@ -67,6 +67,13 @@ public class CarDao {
         session.persist(car2);
         session.persist(car3);
         session.persist(car4);
+        session.persist(owner1);
+        session.persist(owner2);
+        session.persist(owner3);
+        session.persist(owner4);
+        session.persist(owner5);
+        session.persist(driver1);
+        session.persist(driver2);
        
         
         tx.commit();
